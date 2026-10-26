@@ -2,9 +2,18 @@
 
 **Meaning takes root.** A two-player semantic territory game with a living watercolor garden.
 
-[Play](https://halihalibt.github.io/bloombound-genlayer/) · [Rules](RULES.md) · [Contract](contracts/bloombound.py)
+[Play](https://halihalibt.github.io/bloombound-genlayer/) · [Rules](RULES.md) · [Contract](contracts/bloombound.py) · [Live evidence](EVIDENCE.md) · [Deployment guide](DEPLOYMENT.md)
 
 Two gardeners receive different themes. A term grows a flower only when it belongs exclusively to its player's theme and adds a new concept. A paper airplane belongs to both the flying and paper gardens, so neither player can occupy it. GenLayer validators independently assess membership in both themes and semantic novelty. Deterministic code handles turns, scores and the finish.
+
+![BLOOMBOUND verified on-chain garden, score 1:1](media/verified-garden.jpg)
+
+## Quick start
+
+1. Open [BLOOMBOUND](https://halihalibt.github.io/bloombound-genlayer/).
+2. Choose **On chain → Read verified example** to inspect the deployed game without a wallet or transaction.
+3. Open a move in the history to read its decision, then compare it with the [six recorded transactions](EVIDENCE.md).
+4. Choose **Practice** to learn the rules, or connect two wallet addresses to start your own on-chain match.
 
 ## Play
 
@@ -21,6 +30,12 @@ The visual experience includes an original watercolor botanical illustration, tr
 - First to five flowers wins. After 24 attempts, higher score wins; equality draws.
 - A participant can resign. No host scoring override, payments, prizes or token rewards.
 
+## Verified deployment
+
+Contract: [`0xb7ACCA0e7edE69b8Cb25c444f266909697320ad5`](https://explorer-studio.genlayer.com/address/0xb7ACCA0e7edE69b8Cb25c444f266909697320ad5). Deployment reached FINALIZED / SUCCESS under full consensus. The deployed source matches the complete bundled file byte-for-byte. The application can verify the protocol from finalized chain state without signing. [Deployment receipt](evidence/deployment.json).
+
+The recorded browser-native match completed six FINALIZED / SUCCESS transactions: creation, a distinct second player joining, two ROOTED moves, one TANGLED move and one ECHO. The final snapshot is revision 5, score 1:1. [Live records](EVIDENCE.md) · [Execution extract](evidence/verified-match.json). Select **On chain → Read verified example** to fetch its current finalized state without signing.
+
 ## Development
 
 Node.js 22+ and Python 3.11+.
@@ -35,15 +50,20 @@ npm run dev
 
 The local Python suite mocks the GenLayer host and model responses. It verifies state and security invariants; it does not prove live validator agreement. `contracts/bloombound.py` pins its Python runtime. The front end uses genlayer-js 1.1.8.
 
-## Verified deployment
+## Project structure
 
-Contract: [`0xb7ACCA0e7edE69b8Cb25c444f266909697320ad5`](https://explorer-studio.genlayer.com/address/0xb7ACCA0e7edE69b8Cb25c444f266909697320ad5). Deployment reached FINALIZED / SUCCESS under full consensus. The deployed source matches the complete bundled file byte-for-byte. The application can verify the protocol from finalized chain state without signing. [Deployment receipt](evidence/deployment.json).
-
-The recorded browser-native match completed six FINALIZED / SUCCESS transactions: creation, a distinct second player joining, two ROOTED moves, one TANGLED move and one ECHO. The final snapshot is revision 5, score 1:1. [Live records](EVIDENCE.md) · [Execution extract](evidence/verified-match.json). Select **On chain → Read verified example** to fetch its current finalized state without signing.
+| Path | Purpose |
+|---|---|
+| `contracts/bloombound.py` | Deployed Intelligent Contract: independent semantic judgments and deterministic game state |
+| `src/` | Interactive garden, wallet integration, transaction tracking and receipt verification |
+| `tests/`, `contract-tests/` | JavaScript checks and mocked-host contract tests |
+| `evidence/` | Recorded deployment, transactions and finalized game state |
+| `public/` | Runtime assets and verified deployment manifests |
+| `scripts/render-music.py` | Original piano composition renderer |
 
 ## Network and verification
 
-Only Stable Studionet 61999, `https://studio.genlayer.com/api`, is supported. Zero gas price and zero-value writes are required. Injected-wallet keys remain in the wallet; optional temporary-player keys stay in page memory and are never persisted or exported. This repository makes no claim of mainnet deployment, physical-world truth or market exclusivity.
+Only Stable Studionet 61999, `https://studio.genlayer.com/api`, is supported. Zero gas price and zero-value writes are required. Injected-wallet keys remain in the wallet; optional temporary-player keys stay in page memory and are never persisted or exported. The deployment targets Studionet; no mainnet deployment is provided.
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for exact deployment and two-player execution steps. A successful local test or visible Practice flower is never counted as a chain receipt.
 
