@@ -7,4 +7,4 @@ test('uncertainty cannot award a point',()=>{assert.deepEqual(applyMove(practice
 test('fifth flower finishes and rejects further moves',()=>{let g=practice(ARENAS[0]);g.score=[4,0];g=applyMove(g,'eagle',yes);assert.equal(g.status,'FINISHED');assert.equal(g.winner,0);assert.throws(()=>applyMove(g,'cloud',yes));});
 test('24th turn resolves a draw',()=>{let g=practice(ARENAS[0]);g.history=Array(23).fill({word:'x'});g=applyMove(g,'x',{a:'NO',b:'NO',novel:'YES'});assert.equal(g.status,'FINISHED');assert.equal(g.winner,-1);});
 test('practice never pretends to evaluate arbitrary free text',()=>assert.equal(exampleSignals('sky-paper','unlisted example',[]),null));
-test('practice marks exact repeats',()=>assert.equal(exampleSignals('sky-paper','cloud',[{word:'Cloud'}]).novel,'NO'));
+test('practice marks exact repeats',()=>assert.equal(exampleSignals('sky-paper','eagle',[{word:'Eagle'}]).novel,'NO'));
