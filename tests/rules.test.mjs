@@ -1,0 +1,10 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {ARENAS,practice,applyMove,exampleSignals,outcome} from '../src/rules.js';
+const yes={a:'YES',b:'NO',novel:'YES'},paper={a:'NO',b:'YES',novel:'YES'};
+test('opponent-only term consumes a turn without a point',()=>{const g=applyMove(practice(ARENAS[0]),'notebook',paper);assert.deepEqual(g.score,[0,0]);assert.equal(g.turn,1);assert.equal(g.history[0].result,'OTHER_GARDEN');});
+test('overlap is never occupied',()=>{let g=applyMove(practice(ARENAS[0]),'paper airplane',{a:'YES',b:'YES',novel:'YES'});assert.equal(g.history[0].result,'TANGLED');assert.deepEqual(g.score,[0,0]);});
+test('repeat takes precedence over unknown membership',()=>assert.equal(outcome({a:'UNKNOWN',b:'UNKNOWN',novel:'NO'}),'ECHO'));
+test('uncertainty cannot award a point',()=>{assert.deepEqual(applyMove(practice(ARENAS[0]),'mystery',{...yes,b:'UNKNOWN'}).score,[0,0]);});
+test('fifth flower finishes and rejects further moves',()=>{let g=practice(ARENAS[0]);g.score=[4,0];g=applyMove(g,'eagle',yes);assert.equal(g.status,'FINISHED');assert.equal(g.winner,0);assert.throws(()=>applyMove(g,'cloud',yes));});
+test('24th turn resolves a draw',()=>{let g=practice(ARENAS[0]);g.history=Array(23).fill({word:'x'});g=applyMove(g,'x',{a:'NO',b:'NO',novel:'YES'});assert.equal(g.status,'FINISHED');assert.equal(g.winner,-1);});
+test('practice never pretends to evaluate arbitrary free text',()=>assert.equal(exampleSignals('sky-paper','unlisted example',[]),null));
+test('practice marks exact repeats',()=>assert.equal(exampleSignals('sky-paper','cloud',[{word:'Cloud'}]).novel,'NO'));

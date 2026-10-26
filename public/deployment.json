@@ -1,0 +1,8 @@
+{
+  "protocol": "bloombound-1",
+  "chainId": 61999,
+  "address": "0xb7ACCA0e7edE69b8Cb25c444f266909697320ad5",
+  "deploymentTransaction": "0x72bcfb6b82a57e0ae95bc2d5a9850b0b869e462c2b412a888a33f969fec0ac55",
+  "sourceSha256": "2825d8edb79774b02e29d504800be09b31fac002ee838e5956092535b09c73f6",
+  "verifiedMatch": null
+}
