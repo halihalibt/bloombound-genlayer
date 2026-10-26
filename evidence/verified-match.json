@@ -1,0 +1,169 @@
+{
+  "application": "BLOOMBOUND",
+  "network": "Stable Studionet",
+  "chainId": 61999,
+  "checkedAt": "2026-10-26T06:40:35.633Z",
+  "game": {
+    "arena": "sky-paper",
+    "history": [
+      {
+        "player": 0,
+        "result": "ROOTED",
+        "signals": {
+          "a": "YES",
+          "b": "NO",
+          "novel": "YES",
+          "reason": "Eagle clearly belongs to 'things that can fly through the air' as birds are paradigmatic fliers. Eagle does not belong to 'objects made primarily of paper' since eagles are living animals, not paper constructs. The term eagle is novel as it introduces a specific bird species not previously mentioned."
+        },
+        "word": "eagle"
+      },
+      {
+        "player": 1,
+        "result": "ROOTED",
+        "signals": {
+          "a": "NO",
+          "b": "YES",
+          "novel": "YES",
+          "reason": "A notebook cannot fly through the air under its own power or conventionally. It is primarily made of paper. No previous term covers this concept; eagle is a bird, not a paper object."
+        },
+        "word": "notebook"
+      },
+      {
+        "player": 0,
+        "result": "TANGLED",
+        "signals": {
+          "a": "YES",
+          "b": "YES",
+          "novel": "YES",
+          "reason": "A paper airplane is a folded paper object that can fly through the air. It is made primarily of paper. Not synonymous with eagle (bird) or notebook (paper book)."
+        },
+        "word": "paper airplane"
+      },
+      {
+        "player": 1,
+        "result": "ECHO",
+        "signals": {
+          "a": "UNKNOWN",
+          "b": "UNKNOWN",
+          "novel": "NO",
+          "reason": "This exact term has already been attempted in this garden."
+        },
+        "word": "eagle"
+      }
+    ],
+    "id": "0x3951519df582b98a5278b1ee25b03adf84420631:verified-bloom",
+    "players": [
+      "0x3951519df582b98a5278b1ee25b03adf84420631",
+      "0x21bf2a677895c1ef20a1df8a8dcc06e3f6b23cfa"
+    ],
+    "revision": 5,
+    "score": [
+      1,
+      1
+    ],
+    "status": "ACTIVE",
+    "turn": 0,
+    "winner": -1
+  },
+  "transactions": [
+    {
+      "hash": "0x1fea5b0fccaffe731fcc63f7e7bfeeb766742968bffee6c54d0ccc0ba60b7da4",
+      "from": "0x3951519dF582b98a5278b1Ee25b03ADf84420631",
+      "to": "0xb7ACCA0e7edE69b8Cb25c444f266909697320ad5",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "fullConsensus": true,
+      "consensus": "MAJORITY_AGREE",
+      "call": {
+        "args": [
+          "verified-bloom",
+          "sky-paper"
+        ],
+        "method": "create_game"
+      }
+    },
+    {
+      "hash": "0xcdcfbb11cde888006ee6427c983191b028a5498f4978c6fd5bcdd7ad714be5ce",
+      "from": "0x21bF2a677895C1Ef20A1dF8a8Dcc06e3f6B23CFA",
+      "to": "0xb7ACCA0e7edE69b8Cb25c444f266909697320ad5",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "fullConsensus": true,
+      "consensus": "MAJORITY_AGREE",
+      "call": {
+        "args": [
+          "0x3951519df582b98a5278b1ee25b03adf84420631:verified-bloom"
+        ],
+        "method": "join_game"
+      }
+    },
+    {
+      "hash": "0xff7fe4a06a602b831fb2ebd308effd8e6b73d6300ae7ea5489649da4c6c57d5e",
+      "from": "0x3951519dF582b98a5278b1Ee25b03ADf84420631",
+      "to": "0xb7ACCA0e7edE69b8Cb25c444f266909697320ad5",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "fullConsensus": true,
+      "consensus": "MAJORITY_AGREE",
+      "call": {
+        "args": [
+          "0x3951519df582b98a5278b1ee25b03adf84420631:verified-bloom",
+          1,
+          "eagle"
+        ],
+        "method": "plant"
+      }
+    },
+    {
+      "hash": "0x7d5e02b460b4ea3fdeb904a79ac3b012dd433aaf139ca1ac20257b49593ff2b4",
+      "from": "0x21bF2a677895C1Ef20A1dF8a8Dcc06e3f6B23CFA",
+      "to": "0xb7ACCA0e7edE69b8Cb25c444f266909697320ad5",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "fullConsensus": true,
+      "consensus": "MAJORITY_AGREE",
+      "call": {
+        "args": [
+          "0x3951519df582b98a5278b1ee25b03adf84420631:verified-bloom",
+          2,
+          "notebook"
+        ],
+        "method": "plant"
+      }
+    },
+    {
+      "hash": "0x60752fa5deb5f182c54e42be10e9c87f12b49fc0772c5a6e13b2a0597d256020",
+      "from": "0x3951519dF582b98a5278b1Ee25b03ADf84420631",
+      "to": "0xb7ACCA0e7edE69b8Cb25c444f266909697320ad5",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "fullConsensus": true,
+      "consensus": "MAJORITY_AGREE",
+      "call": {
+        "args": [
+          "0x3951519df582b98a5278b1ee25b03adf84420631:verified-bloom",
+          3,
+          "paper airplane"
+        ],
+        "method": "plant"
+      }
+    },
+    {
+      "hash": "0x9c5dc2b664fe09f9698f3fddb89ab2215c390aaec1163ae1a1a8d02868883b65",
+      "from": "0x21bF2a677895C1Ef20A1dF8a8Dcc06e3f6B23CFA",
+      "to": "0xb7ACCA0e7edE69b8Cb25c444f266909697320ad5",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "fullConsensus": true,
+      "consensus": "MAJORITY_AGREE",
+      "call": {
+        "args": [
+          "0x3951519df582b98a5278b1ee25b03adf84420631:verified-bloom",
+          4,
+          "eagle"
+        ],
+        "method": "plant"
+      }
+    }
+  ]
+}

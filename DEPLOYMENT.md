@@ -4,9 +4,9 @@ Network: chain **61999**, RPC `https://studio.genlayer.com/api`. This game has n
 
 ## Deploy
 
-Open the app's **On chain** workspace, connect an injected wallet on Stable Studionet, expand **Create a new garden or deploy the canonical contract**, then select **Deploy contract**. Alternatively upload `contracts/bloombound.py` in GenLayer Studio and deploy the complete file with no constructor arguments. Do not paste a private key into the app or a chat.
+Open the app's **On chain** workspace, connect an injected wallet on Stable Studionet (or expand **No wallet extension?** and choose a temporary Studio player), expand **Create a new garden or deploy the canonical contract**, then select **Deploy contract**. Alternatively upload `contracts/bloombound.py` in GenLayer Studio and deploy the complete file with no constructor arguments. Do not paste a private key into the app or a chat.
 
-After sending, expand **Transaction status & recovery** and use **Check finality & read back**. The address is filled only after successful finalized deployment and byte-for-byte source verification. If a hash was submitted but the UI interrupted, attach the exact hash from wallet history to the saved intent; never resubmit an uncertain write.
+After sending, the app tracks consensus automatically with read-only requests. **Transaction status & recovery → Check finality & read back** also checks explicitly. The address is filled only after successful finalized deployment and byte-for-byte source verification. If a hash was submitted but the UI interrupted, attach the exact hash from wallet history to the saved intent; never resubmit an uncertain write.
 
 ## Two-player match
 
@@ -19,3 +19,7 @@ After sending, expand **Transaction status & recovery** and use **Check finality
 7. Export the game and each execution record. Each successful operation requires FINALIZED, successful execution, exact sender/function/args binding and state readback. A finalized rollback is a failed write, never a scored move.
 
 The local test suite covers rollback boundaries and consensus rejection with mocked hosts. Live receipts, when available, must be separately recorded; none should be inferred from this walkthrough.
+
+## Recorded example
+
+The existing six-transaction match is documented in [EVIDENCE.md](EVIDENCE.md). Use **On chain → Read verified example** to inspect it without signing or creating a new match. Temporary Studio player accounts remain only in the current page; keep the page open while playing. An injected wallet is appropriate when the same seat must be resumed later.
