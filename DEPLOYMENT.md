@@ -2,9 +2,13 @@
 
 Network: chain **61999**, RPC `https://studio.genlayer.com/api`. This game has no payments or prizes. Use normal full consensus, not leader-only execution. No constructor arguments are required.
 
-## Deploy
+## Inspect the existing deployment
 
-Open the app's **On chain** workspace, connect an injected wallet on Stable Studionet (or expand **No wallet extension?** and choose a temporary Studio player), expand **Create a new garden or deploy the canonical contract**, then select **Deploy contract**. Alternatively upload `contracts/bloombound.py` in GenLayer Studio and deploy the complete file with no constructor arguments. Do not paste a private key into the app or a chat.
+The canonical contract is `0xb7ACCA0e7edE69b8Cb25c444f266909697320ad5`. Open **On chain → Read verified example** for a read-only inspection. Existing deployment and match receipts are linked in [EVIDENCE.md](EVIDENCE.md); a new deployment is optional.
+
+## Deploy a new instance
+
+Open the app's **On chain** workspace, connect an injected wallet on Stable Studionet (or expand **No wallet extension?** and choose a temporary Studio player), expand **Create a new garden or deploy the canonical contract**, then select **Deploy contract**. Alternatively upload `contracts/bloombound.py` in GenLayer Studio and deploy the complete file with no constructor arguments. The app uses wallet signing or generates temporary players locally; it does not request private-key entry.
 
 After sending, the app tracks consensus automatically with read-only requests. **Transaction status & recovery → Check finality & read back** also checks explicitly. The address is filled only after successful finalized deployment and byte-for-byte source verification. If a hash was submitted but the UI interrupted, attach the exact hash from wallet history to the saved intent; never resubmit an uncertain write.
 
@@ -18,7 +22,7 @@ After sending, the app tracks consensus automatically with read-only requests. *
 6. Wallet B reads and plants `eagle`. Exact repeat must produce ECHO deterministically.
 7. Export the game and each execution record. Each successful operation requires FINALIZED, successful execution, exact sender/function/args binding and state readback. A finalized rollback is a failed write, never a scored move.
 
-The local test suite covers rollback boundaries and consensus rejection with mocked hosts. Live receipts, when available, must be separately recorded; none should be inferred from this walkthrough.
+The local test suite covers rollback boundaries and consensus rejection with mocked hosts. The recorded live match is linked below. A new match needs its own exported receipts; the walkthrough itself is not execution evidence.
 
 ## Recorded example
 
