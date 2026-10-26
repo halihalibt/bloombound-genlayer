@@ -6,3 +6,6 @@ test('finalized rollback is failed',()=>assert.equal(execution({statusName:'FINA
 test('missing execution cannot claim success',()=>assert.equal(execution({statusName:'FINALIZED'}),'unverified'));
 test('cancelled never succeeds',()=>assert.equal(execution({statusName:'CANCELED',txExecutionResult:1}),'failed'));
 test('SDK return enum is supported',()=>assert.equal(execution({statusName:'FINALIZED',txExecutionResultName:'FINISHED_WITH_RETURN'}),'success'));
+
+test('SDK integer arguments preserve signed numeric types',async()=>{const {asPlain}=await import('../src/receipts.js');assert.deepEqual(asPlain(new Map([['args',['game',1n,'eagle']]])),{args:['game',1,'eagle']});assert.notDeepEqual(asPlain(['game','1','eagle']),['game',1,'eagle']);});
+test('unsafe integers remain exact',async()=>{const {asPlain}=await import('../src/receipts.js');assert.equal(asPlain(9007199254740993n),'9007199254740993');});
